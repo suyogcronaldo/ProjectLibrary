@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Admin Dashboard</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+            <link rel="stylesheet" href="smart.css">
+        </head>
+
+        <body>
+            <div class="wrapper">
+                <div class="sidebar">
+                        <ul>
+                            <li>
+                                <a href="#" class="active" onclick="showForm('dashboardForm')">
+                                    <span class="icon"><i class="fas fa-home"></i></span>
+                                    <span class="item">Dashboard</span>
+                                </a>
+                            </li>
+
+                             <li>
+                                <a href="#"  onclick="showForm('issueBookForm')">
+                                <span class="icon"><i class="fas fa-book"></i></span>
+                                <span class="item">Issue Book</span>
+                                </a> 
+                            </li> 
+
+                            <li>
+                                <a href="#" onclick="showForm('returnBookForm')">
+                                    <span class="icon"><i class="fas fa-book"></i></span>
+                                    <span class="item">Return Book</span>
+                                </a> 
+                            </li>
+
+                            <li>
+                                <a href="#" onclick="showForm('addUserForm')">
+                                    <span class="icon"><i class="fas fa-plus"></i></span>
+                                    <span class="item">Add User</span>
+                                </a> 
+                            </li>
+
+                            <li>
+                                <a href="#" onclick="showForm('removeUserForm')">
+                                    <span class="icon"><i class="fas fa-minus"></i></span>
+                                    <span class="item">Remove User</span>
+                                </a> 
+                            </li>
+
+                            <li>
+                                <a href="#" onclick="showForm('addBookForm')">
+                                    <span class="icon"><i class="fas fa-plus"></i></span>
+                                    <span class="item">Add Book</span>
+                                </a> 
+                            </li>
+
+                            <li>
+                                <a href="#" onclick="showForm('removeBookForm')">
+                                    <span class="icon"><i class="fas fa-minus"></i></span>
+                                    <span class="item">Remove Book</span>
+                                </a> 
+                            </li>
+
+                            <li>
+                                <a href="#" onclick="showForm('BookListForm')">
+                                    <span class="icon"><i class="fas fa-book"></i></span>
+                                    <span class="item">Book List</span>
+                                </a> 
+                            </li>
+
+                            <li>
+                                <a href="#" onclick="showForm('UserListForm')">
+                                    <span class="icon"><i class="fas fa-user"></i></span>
+                                    <span class="item">User List</span>
+                                </a> 
+                            </li>
+                        </ul>
+                </div>
+            </div>
+   
+                <div class="navbar">
+                    <div class="section">
+                        <div class="top_navbar">
+                            <div class="hamburger">
+                                <a href="#"><i class="fas fa-bars"></i></a>
+                            </div>
+                            <a class="logo" href="#">eLibrary</a>
+                
+                            <div class="nav-buttons" style="float: right;">
+                                <button type="submit" class="nav-button" style="box-shadow: #ccc;"><a href="smart.html">Logout</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         
+                <script>
+                    var hamburger= document.querySelector(".hamburger");
+                    hamburger.addEventListener("click", function(){
+                        document.querySelector("body").classList.toggle("active");
+                    })
+                </script>
+    
+<!-- DashBoard -->
+                <div class="form" id="dashboardForm">
+                    <h1>Welcome to the Admin Dashboard</h1>
+                    <p>This is a simple dashboard view.</p>
+
+                </div>
+    
+<!-- Issue Book -->
+                <div class="form" id="issueBookForm" style="display: none;">
+                    <h1 style="background-color: #ccc; width:700px; border-radius: 5px; margin-left: -50px; margin-top: -80px; padding: auto; ">Issue Book</h1>
+                    <form method="POST">
+                        <label for="book_id">Book ID:</label>
+                        <input type="text" id="book_id" name="book_id" placeholder="Enter Book ID" required><br>
+                    
+                        <label for="book_title">Book Title:</label>
+                        <input type="text" id="book_title" name="book_title" placeholder="Enter Book Title" required><br>
+                    
+                        <div style="display: flex; justify-content: space-between;">
+                            <div style="flex-grow: 1; margin-right: 10px;">
+                                <label for="borrower_id">Borrower ID:</label>
+                                <input type="text" id="borrower_id" name="borrower_id" placeholder="Enter Borrower ID" required>
+                            </div>
+
+                            <div style="flex-grow: 1;">
+                                <label for="borrower_name">Borrower Name:</label>
+                                <input type="text" id="borrower_name" name="borrower_name" placeholder="Enter Borrower Name" required>
+                            </div>
+                        </div>
+        
+                        <label for="issue_date">Issue Date:</label>
+                        <input type="date" id="issue_date" name="issue_date" required><br>
+                        <script>
+                            // Get today's date
+                            var today = new Date().toISOString().split('T')[0];
+                            
+                            // Set the maximum and minimum date to today's date
+                            document.getElementById("issue_date").setAttribute('max', today);
+                            document.getElementById("issue_date").setAttribute('min', today);
+                        </script>
+                        <div>
+                            <input type="submit" value="Submit">
+                            
+                        </div>
+                        
+                    </form>
+                    <script>
+                        function showIssueBookForm() {
+                            document.getElementById('issueBookForm').style.display = 'block';
+                        }
+                    </script>
+                </div>
+    
+<!-- Return Book -->
+                <div class="form" id="returnBookForm" style="display: none;">
+                    <h1 style="background-color: #ccc; width:700px; border-radius: 5px; margin-left: -50px; margin-top: -80px; padding: auto; ">Return Book</h1>
+                    <form method="POST">
+                        <label for="book_id">Book ID:</label>
+                        <input type="text" id="book_id" name="book_id" placeholder="Enter Book ID" required><br>
+                    
+                        <label for="book_title">Book Title:</label>
+                        <input type="text" id="book_title" name="book_title" placeholder="Enter Book Title" required><br>
+                    
+                        <div style="display: flex; justify-content: space-between;">
+                            <div style="flex-grow: 1; margin-right: 10px;">
+                                <label for="borrower_id">Borrower ID:</label>
+                                <input type="text" id="borrower_id" name="borrower_id" placeholder="Enter Borrower ID" required>
+                            </div>
+                            <div style="flex-grow: 1;">
+                                <label for="borrower_name">Borrower Name:</label>
+                                <input type="text" id="borrower_name" name="borrower_name" placeholder="Enter Borrower Name" required>
+                            </div>
+                        </div>
+                    
+                        <label for="return_date">Return Date:</label>
+                        <input type="date" id="return_date" name="return_date" required><br>
+                        <script>
+                            // Get today's date
+                            var today = new Date().toISOString().split('T')[0];
+                            
+                            // Set the maximum and minimum date to today's date
+                            document.getElementById("return_date").setAttribute('max', today);
+                            document.getElementById("return_date").setAttribute('min', today);
+                        </script>
+                        <input type="submit" value="Submit">
+                    </form>
+                    <script>
+                        function showReturnBookForm() {
+                            document.getElementById('returnBookForm').style.display = 'block';
+                        }
+                    </script>
+                </div>
+
+<!-- Add User -->
+<div class="form" id="addUserForm" style="display: none;">
+    <h1 style="background-color: #ccc; width:700px; border-radius: 5px; margin-left: -50px; margin-top: -80px; padding: auto; ">Add User</h1>
+    <form method="POST" action="add_user.php"> <!-- PHP script to handle form submission -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter Username" required><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
+
+        <label for="f_name">First Name:</label>
+        <input type="text" id="f_name" name="f_name" placeholder="Enter First Name" required><br>
+    
+        <label for="l_name">Last Name:</label>
+        <input type="text" id="l_name" name="l_name" placeholder="Enter Last Name" required><br>
+        
+        <div style="display: flex; justify-content: space-between;">
+            <div style="flex-grow: 1; margin-right: 10px;">
+                <label for="email_id">Email</label>
+                <input type="email" id="email_id" name="email_id" placeholder="Enter Email ID" required>
+            </div>
+            <div style="flex-grow: 1;">
+                <label for="phone_number">Phone:</label>
+                <input type="text" id="phone_number" name="phone_number" placeholder="Enter Phone Number" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between;">
+            <div style="flex-grow: 1; margin-right: 10px;">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter Your Address" required>
+            </div>
+            <div style="flex-grow: 1;">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Enter City" required>
+            </div>
+        </div>
+        
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function showAddUserForm() {
+            document.getElementById('addUserForm').style.display = 'block';
+        }
+    </script>
+</div>
+
+<!-- Remove User -->
+                <div class="form" id="removeUserForm" style="display: none;">
+                    <h1 style="background-color: #ccc; width:700px; border-radius: 5px; margin-left: -50px; margin-top: -80px; padding: auto; ">Remove User</h1>
+                    <form method="POST">
+                        <label for="f_name">First Name:</label>
+                        <input type="text" id="f_name" name="f_name" placeholder="Enter First Name" required><br>
+
+                        <div style="display: flex; justify-content: space-between;">
+                            <div style="flex-grow: 1; margin-right: 10px;">
+                                <label for="email_id">Email</label>
+                                <input type="email" id="email_id" name="email_id" placeholder="Enter Email ID" required>
+                            </div>
+                            <div style="flex-grow: 1;">
+                        <label for="phone_number">Phone:</label>
+                        <input type="text" id="phone_number" name="phone_number" placeholder="Enter Phone Number" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required>
+                    </div>
+                        </div>
+                    
+                        <input type="submit" value="Submit">
+                    </form>
+                    <script>
+                        function showRemoveUserForm() {
+                            document.getElementById('removeUserForm').style.display = 'block';
+                        }
+                    </script>
+                </div>
+
+<!-- Add Book -->
+                <div class="form" id="addBookForm" style="display: none;">
+                    <h1 style="background-color: #ccc; width:700px; border-radius: 5px; margin-left: -50px; margin-top: -80px; padding: auto; ">Add Book</h1>
+                    <form method="POST">
+                        <label for="book_id">Book ID:</label>
+                        <input type="text" id="book_id" name="book_id" placeholder="Enter Book ID" required><br>
+                    
+                        <label for="book_title">Book Title:</label>
+                        <input type="text" id="book_title" name="book_title" placeholder="Enter Book Title" required><br>
+                        
+                        <label for="author_name">Author Name:</label>
+                        <input type="text" id="author_name" name="author_name" placeholder="Enter Author Name" required><br>
+                    
+                        <label for="added_date">Added Date:</label>
+                        <input type="date" id="added_date" name="added_date" required><br>
+                        
+                        <script>
+                            // Get today's date
+                            var today = new Date().toISOString().split('T')[0];
+                            
+                            // Set the maximum and minimum date to today's date
+                            document.getElementById("added_date").setAttribute('max', today);
+                            document.getElementById("added_date").setAttribute('min', today);
+                        </script>
+
+                        <input type="submit" value="Submit">
+                    </form>
+                    <script>
+                        function showAddBookForm() {
+                            document.getElementById('addBookForm').style.display = 'block';
+                        }
+                    </script>
+                </div>
+
+<!-- Remove Book -->
+                <div class="form" id="removeBookForm" style="display: none;">
+                    <h1 style="background-color: #ccc; width:700px; border-radius: 5px; margin-left: -50px; margin-top: -80px; padding: auto; ">Remove Book</h1>
+                    <form method="POST">
+                        <label for="book_id">Book ID:</label>
+                        <input type="text" id="book_id" name="book_id" placeholder="Enter Book ID" required><br>
+                    
+                        <label for="book_title">Book Title:</label>
+                        <input type="text" id="book_title" name="book_title" placeholder="Enter Book Title" required><br>
+                    
+                        
+                    
+                        <label for="issue_date">Removed Date:</label>
+                        <input type="date" id="removed_date" name="removed_date" required><br>
+                        
+                        <script>
+                            // Get today's date
+                            var today = new Date().toISOString().split('T')[0];
+                            
+                            // Set the maximum and minimum date to today's date
+                            document.getElementById("removed_date").setAttribute('max', today);
+                            document.getElementById("removed_date").setAttribute('min', today);
+                        </script>
+
+                        <input type="submit" value="Submit">
+                    </form>
+                    <script>
+                        function showRemoveBookForm() {
+                            document.getElementById('removeBookForm').style.display = 'block';
+                        }
+                    </script>
+                </div>
+
+                <!-- Book List -->
+            <div class="form" id="BookListForm" style="display: none; background-color: transparent; border: none;">
+                <center><h1 style="background-color: #ccc; width:930px; border-radius: 5px; margin: -50px; margin-bottom: 60px;">Book List</h1></center>
+        <table>
+            <thead>
+                <tr>
+                    <th>SN</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Available</th>
+                    <th>Added Date</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Data Structuries</td>
+                    <td>McGraw Hill</td>
+                    <td>30</td>
+                    <td>21-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Fundamental of Database Systems</td>
+                    <td>Ramez Elmasri</td>
+                    <td>50</td>
+                    <td>20-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Microprocessor Architecture</td>
+                    <td>Ramesh S. Gaonkar</td>
+                    <td>40</td>
+                    <td>21-01-2024</td>
+                   
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Fundamental of Management</td>
+                    <td>Griffin</td>
+                    <td>50</td>
+                    <td>21-01-2024</td>
+                   
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Software Engineering</td>
+                    <td>I.Sommerville</td>
+                    <td>50</td>
+                    <td>21-01-2024</td>
+                  
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Programming in Java</td>
+                    <td>Bidur Devkota</td>
+                    <td>50</td>
+                    <td>21-01-2024</td>
+                   
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>C Programming</td>
+                    <td>Denish Richie</td>
+                    <td>50</td>
+                    <td>21-01-2024</td>
+                  
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Basics Electronics</td>
+                    <td>B.L Theraja</td>
+                    <td>50</td>
+                    <td>21-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Digital Logic Design</td>
+                    <td>Bashir Alam</td>
+                    <td>50</td>
+                    <td>21-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Mathematical Engineering II</td>
+                    <td>Ken Stroud</td>
+                    <td>10</td>
+                    <td>21-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Computer Systems</td>
+                    <td>Randal Bryant</td>
+                    <td>30</td>
+                    <td>21-01-2024</td>
+                  
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Computer Architecture</td>
+                    <td>John Hennessy</td>
+                    <td>30</td>
+                    <td>21-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Computer Organization and Design</td>
+                    <td>David Patterson</td>
+                    <td>30</td>
+                    <td>21-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Data Structuries</td>
+                    <td>McGraw Hill</td>
+                    <td>30</td>
+                    <td>21-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Introduction to Algorithms</td>
+                    <td>Thomas H. Cormen</td>
+                    <td>30</td>
+                    <td>21-01-2024</td>
+                 
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>The Pragmatic Programmer</td>
+                    <td>Andy Hunt</td>
+                    <td>30</td>
+                    <td>21-01-2024</td>
+                 
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Modern Operating Systems</td>
+                    <td>Andrew S. Tanenbaum</td>
+                    <td>30</td>
+                    <td>21-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>The Soul of a New Machine</td>
+                    <td>Tracy Kidder</td>
+                    <td>50</td>
+                    <td>21-01-2024</td>
+                    
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Making Embedded Systems</td>
+                    <td>Elecia White</td>
+                    <td>40</td>
+                    <td>21-01-2024</td>
+                  
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>The Art of Electronics</td>
+                    <td>Paul Horowitz</td>
+                    <td>35</td>
+                    <td>21-01-2024</td>
+         
+                </tr>
+            </tbody>
+        </table>
+        
+       
+        </div>
+            <script>
+                // JavaScript Functions
+                function showForm(formId) {
+                    // Hide all forms
+                    var forms = document.querySelectorAll('.form');
+                    forms.forEach(function(form) {
+                        form.style.display = 'none';
+                    });
+                    // Show the selected form
+                    document.getElementById(formId).style.display = 'block';
+                }
+            </script>
+             
+<!-- User List -->
+<div class="form" id="UserListForm" style="display: none; background-color: transparent; border: none;">
+    <center><h1 style="background-color: #ccc; width:930px; border-radius: 5px; margin: -50px; margin-bottom: 60px;">User List</h1></center>
+<table>
+<thead>
+    <tr>
+        <th>SN</th>
+        <th>User Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email ID</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>City</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>1</td>
+        <td>suyogbaral2022</td>
+        <td>Suyog</td>
+        <td>Baral</td>
+        <td>suyogbaral10@gmail.com</td>
+        <td>9824157100</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>surubaral2022</td>
+        <td>Suru</td>
+        <td>Baral</td>
+        <td>surubaral10@gmail.com</td>
+        <td>9812345888</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>3</td>
+        <td>suyogbaral2022</td>
+        <td>Suyog</td>
+        <td>Baral</td>
+        <td>suyogbaral10@gmail.com</td>
+        <td>9824157100</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>4</td>
+        <td>surubaral2022</td>
+        <td>Suru</td>
+        <td>Baral</td>
+        <td>surubaral10@gmail.com</td>
+        <td>9812345888</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>5</td>
+        <td>suyogbaral2022</td>
+        <td>Suyog</td>
+        <td>Baral</td>
+        <td>suyogbaral10@gmail.com</td>
+        <td>9824157100</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>6</td>
+        <td>surubaral2022</td>
+        <td>Suru</td>
+        <td>Baral</td>
+        <td>surubaral10@gmail.com</td>
+        <td>9812345888</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>7</td>
+        <td>suyogbaral2022</td>
+        <td>Suyog</td>
+        <td>Baral</td>
+        <td>suyogbaral10@gmail.com</td>
+        <td>9824157100</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>8</td>
+        <td>surubaral2022</td>
+        <td>Suru</td>
+        <td>Baral</td>
+        <td>surubaral10@gmail.com</td>
+        <td>9812345888</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>9</td>
+        <td>suyogbaral2022</td>
+        <td>Suyog</td>
+        <td>Baral</td>
+        <td>suyogbaral10@gmail.com</td>
+        <td>9824157100</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>10</td>
+        <td>surubaral2022</td>
+        <td>Suru</td>
+        <td>Baral</td>
+        <td>surubaral10@gmail.com</td>
+        <td>9812345888</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>11</td>
+        <td>suyogbaral2022</td>
+        <td>Suyog</td>
+        <td>Baral</td>
+        <td>suyogbaral10@gmail.com</td>
+        <td>9824157100</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr><tr>
+        <td>12</td>
+        <td>surubaral2022</td>
+        <td>Suru</td>
+        <td>Baral</td>
+        <td>surubaral10@gmail.com</td>
+        <td>9812345888</td>
+        <td>Gandaki Province</td>
+        <td>Pokhara</td>
+    </tr>
+
+</tbody>
+</table>
+
+
+</div>
+<script>
+    // JavaScript Functions
+    function showForm(formId) {
+        // Hide all forms
+        var forms = document.querySelectorAll('.form');
+        forms.forEach(function(form) {
+            form.style.display = 'none';
+        });
+        // Show the selected form
+        document.getElementById(formId).style.display = 'block';
+    }
+</script>
+ 
+
+            
+    
+	
+           
+        
+
+        </body>
+    </html>

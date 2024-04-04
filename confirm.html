@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Reservation Confirmation</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		}
+
+		h1 {
+			color: #4CAF50;
+			text-align: center;
+		}
+
+		p {
+			font-size: 1.2em;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		.btn-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 20px;
+			border: 2px solid #4CAF50;
+			border-radius: 5px;
+			padding: 10px;
+		}
+
+		button {
+			padding: 10px 20px;
+			font-size: 1.2em;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease-in-out;
+			margin: 0 10px;
+		}
+
+		button:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<h1>Book Reservation Confirmation</h1>
+	
+	<p>Congratulations, You've reserved the book.</p>
+
+	
+	<div class="btn-container">
+		<button id="book-more-btn">Book more</button>
+
+	
+		<button id="go-home-btn">Go to home page</button>
+	</div>
+
+	<script>
+		
+		document.getElementById("book-more-btn").addEventListener("click", function() {
+			window.location.href = "reserve.html";
+		});
+
+	
+        	document.getElementById("go-home-btn").addEventListener("click", function() {
+			window.location.href = "smart.html";
+		});
+	</script>
+
+</body>
+</html>
