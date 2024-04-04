@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin-Login-Page</title>
+        <link rel="stylesheet" href="smart.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <span class="logo" style="color:#ccc">eLibrary</span>
+            
+            
+            <div class="nav-buttons">
+                <button type="submit" class="nav-button"><a href="smart.html">User</a></button>
+                
+                <a href="#" class="help-link">Help</a>
+                <span class="tooltip">Chairman<br>Suyog Baral<br>Contact:<br>suyogbaral9@gmail.com</span>
+            </div>
+          </div>
+
+        <div class="form-container">
+            <form name="loginForm" onsubmit="return validateForm()">
+                <h1>Welcome, Admin!</h1>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" onclick="return validateForm()">Login</button>
+            </form>
+        </div>
+        <script>
+            function validateForm() {
+        var username = document.forms["loginForm"]["username"].value;
+        var password = document.forms["loginForm"]["password"].value;
+        if (username === "" || password === "") {
+            alert("Please fill in all the required fields.");
+            return false;
+        } else if (username === "admin123" && password === "pass123") {
+            window.location.replace("admin-dashboard.html");
+            return false;
+        } else {
+            alert("Invalid username or password.");
+            return false;
+        }
+    }
+    
+        </script>
+    </body>
+</html>
