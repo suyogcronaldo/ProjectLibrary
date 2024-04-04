@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Smart Library- Login</title>
-        <link rel="stylesheet" href="smart.css">
-    </head>
-
-    <body>
-        <div class="navbar">
-            <span class="logo" style="color:#ccc">eLibrary</span>
+<head>
+	<title>Smart Library - Login</title>	
+	<link rel="stylesheet" href="smart.css">
+</head>
+<body>	
+	
+	<div class="navbar">
+		<span class="logo" style="color:#ccc">eLibrary</span>
+		
+		
+		<div class="nav-buttons">
+            <button type="submit" class="nav-button"><a href="LoginAdmin.html">Admin</a></button>
+			
+            <a href="#" class="help-link">Help</a>
+            <span class="tooltip">Chairman<br>Suyog Baral<br>Contact:<br>suyogbaral9@gmail.com</span>
         </div>
-    </body>
+	  </div>
+
+	  <div class="form-container">
+		<form name="loginForm"  onsubmit="return validateForm()">
+			<h1>Welcome, User!</h1>
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username" required>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required>
+			<button type="submit" onclick="return validateForm()">Login</button>
+		</form>	
+	
+		<script>
+			function validateForm() {
+				var username = document.forms["loginForm"]["username"].value;
+				var password = document.forms["loginForm"]["password"].value;
+				if (username === "" || password === "") {
+					alert("Please fill in all the required fields.");
+					return false;
+				}
+				else if(username ==="user1234" || password === "pass1234"){
+					window.location.replace("reserve.html");
+					return false;
+			}
+			else{
+				alert("Invalid username or password.");
+				return false;
+			}
+		}
+		</script>
+	
+	
+	</body>
+
 </html>
