@@ -19,16 +19,16 @@
 	  </div>
 
 	  <div class="form-container">
-		<form name="loginForm"  onsubmit="return validateForm()">
+		<form  action="includes/formhandler_inc.php" method="post">
 			<h1>Welcome, User!</h1>
 			<label for="username">Username:</label>
 			<input type="text" id="username" name="username" required>
 			<label for="password">Password:</label>
 			<input type="password" id="password" name="password" required>
-			<button type="submit" onclick="return validateForm()">Login</button>
+			<button type="submit">Login</button>
 		</form>	
 	
-		<script>
+		<!-- <script>
 			function validateForm() {
 				var username = document.forms["loginForm"]["username"].value;
 				var password = document.forms["loginForm"]["password"].value;
@@ -45,7 +45,7 @@
 				return false;
 			}
 		}
-		</script>
+		</script> -->
 	
 	
 	</body>

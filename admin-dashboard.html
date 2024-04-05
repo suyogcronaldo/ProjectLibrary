@@ -115,7 +115,7 @@
                         <label for="book_title">Book Title:</label>
                         <input type="text" id="book_title" name="book_title" placeholder="Enter Book Title" required><br>
                     
-                        <div style="display: flex; justify-content: space-between;">
+                       
                             <div style="flex-grow: 1; margin-right: 10px;">
                                 <label for="borrower_id">Borrower ID:</label>
                                 <input type="text" id="borrower_id" name="borrower_id" placeholder="Enter Borrower ID" required>
@@ -125,7 +125,7 @@
                                 <label for="borrower_name">Borrower Name:</label>
                                 <input type="text" id="borrower_name" name="borrower_name" placeholder="Enter Borrower Name" required>
                             </div>
-                        </div>
+                      
         
                         <label for="issue_date">Issue Date:</label>
                         <input type="date" id="issue_date" name="issue_date" required><br>
@@ -160,7 +160,7 @@
                         <label for="book_title">Book Title:</label>
                         <input type="text" id="book_title" name="book_title" placeholder="Enter Book Title" required><br>
                     
-                        <div style="display: flex; justify-content: space-between;">
+                       
                             <div style="flex-grow: 1; margin-right: 10px;">
                                 <label for="borrower_id">Borrower ID:</label>
                                 <input type="text" id="borrower_id" name="borrower_id" placeholder="Enter Borrower ID" required>
@@ -169,7 +169,7 @@
                                 <label for="borrower_name">Borrower Name:</label>
                                 <input type="text" id="borrower_name" name="borrower_name" placeholder="Enter Borrower Name" required>
                             </div>
-                        </div>
+                       
                     
                         <label for="return_date">Return Date:</label>
                         <input type="date" id="return_date" name="return_date" required><br>
@@ -193,7 +193,7 @@
 <!-- Add User -->
 <div class="form" id="addUserForm" style="display: none;">
     <h1 style="background-color: #ccc; width:700px; border-radius: 5px; margin-left: -50px; margin-top: -80px; padding: auto; ">Add User</h1>
-    <form method="POST" action="add_user.php"> <!-- PHP script to handle form submission -->
+    <form  action="includes/formhandler_inc.php" method="post"> <!-- PHP script to handle form submission -->
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Enter Username" required><br>
         
@@ -206,7 +206,7 @@
         <label for="l_name">Last Name:</label>
         <input type="text" id="l_name" name="l_name" placeholder="Enter Last Name" required><br>
         
-        <div style="display: flex; justify-content: space-between;">
+      
             <div style="flex-grow: 1; margin-right: 10px;">
                 <label for="email_id">Email</label>
                 <input type="email" id="email_id" name="email_id" placeholder="Enter Email ID" required>
@@ -215,17 +215,14 @@
                 <label for="phone_number">Phone:</label>
                 <input type="text" id="phone_number" name="phone_number" placeholder="Enter Phone Number" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required>
             </div>
-        </div>
+        
 
         <div style="display: flex; justify-content: space-between;">
             <div style="flex-grow: 1; margin-right: 10px;">
-                <label for="address">Address</label>
-                <input type="text" id="address" name="address" placeholder="Enter Your Address" required>
+                <label for="address">City</label>
+                <input type="text" id="address" name="address" placeholder="Enter Your City" required>
             </div>
-            <div style="flex-grow: 1;">
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" placeholder="Enter City" required>
-            </div>
+            
         </div>
         
         <input type="submit" value="Submit">
@@ -244,7 +241,7 @@
                         <label for="f_name">First Name:</label>
                         <input type="text" id="f_name" name="f_name" placeholder="Enter First Name" required><br>
 
-                        <div style="display: flex; justify-content: space-between;">
+                        
                             <div style="flex-grow: 1; margin-right: 10px;">
                                 <label for="email_id">Email</label>
                                 <input type="email" id="email_id" name="email_id" placeholder="Enter Email ID" required>
@@ -253,7 +250,7 @@
                         <label for="phone_number">Phone:</label>
                         <input type="text" id="phone_number" name="phone_number" placeholder="Enter Phone Number" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required>
                     </div>
-                        </div>
+                       
                     
                         <input type="submit" value="Submit">
                     </form>
@@ -536,7 +533,7 @@
         <th>Last Name</th>
         <th>Email ID</th>
         <th>Phone Number</th>
-        <th>Address</th>
+       
         <th>City</th>
     </tr>
 </thead>
@@ -548,7 +545,7 @@
         <td>Baral</td>
         <td>suyogbaral10@gmail.com</td>
         <td>9824157100</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr>
     <tr>
@@ -558,7 +555,7 @@
         <td>Baral</td>
         <td>surubaral10@gmail.com</td>
         <td>9812345888</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr><tr>
         <td>3</td>
@@ -567,7 +564,7 @@
         <td>Baral</td>
         <td>suyogbaral10@gmail.com</td>
         <td>9824157100</td>
-        <td>Gandaki Province</td>
+     
         <td>Pokhara</td>
     </tr><tr>
         <td>4</td>
@@ -576,7 +573,7 @@
         <td>Baral</td>
         <td>surubaral10@gmail.com</td>
         <td>9812345888</td>
-        <td>Gandaki Province</td>
+        
         <td>Pokhara</td>
     </tr><tr>
         <td>5</td>
@@ -585,7 +582,7 @@
         <td>Baral</td>
         <td>suyogbaral10@gmail.com</td>
         <td>9824157100</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr><tr>
         <td>6</td>
@@ -594,7 +591,7 @@
         <td>Baral</td>
         <td>surubaral10@gmail.com</td>
         <td>9812345888</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr><tr>
         <td>7</td>
@@ -603,7 +600,7 @@
         <td>Baral</td>
         <td>suyogbaral10@gmail.com</td>
         <td>9824157100</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr><tr>
         <td>8</td>
@@ -612,7 +609,7 @@
         <td>Baral</td>
         <td>surubaral10@gmail.com</td>
         <td>9812345888</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr><tr>
         <td>9</td>
@@ -621,7 +618,7 @@
         <td>Baral</td>
         <td>suyogbaral10@gmail.com</td>
         <td>9824157100</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr><tr>
         <td>10</td>
@@ -630,7 +627,7 @@
         <td>Baral</td>
         <td>surubaral10@gmail.com</td>
         <td>9812345888</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr><tr>
         <td>11</td>
@@ -639,7 +636,7 @@
         <td>Baral</td>
         <td>suyogbaral10@gmail.com</td>
         <td>9824157100</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr><tr>
         <td>12</td>
@@ -648,7 +645,7 @@
         <td>Baral</td>
         <td>surubaral10@gmail.com</td>
         <td>9812345888</td>
-        <td>Gandaki Province</td>
+       
         <td>Pokhara</td>
     </tr>
 
